@@ -17,3 +17,7 @@ lines(data_200701$Sub_metering_2 ~ data_200701$DateTime, col = 'Red')
 lines(data_200701$Sub_metering_3 ~ data_200701$DateTime, col = 'Blue')
 
 plot(data_200701$Global_reactive_power ~ data_200701$DateTime, type="l", xlab="datetime", ylab= "Global_active_power")
+
+## Saving Output
+dev.copy(png,file="plot4.png",width=480, height=480)
+dev.off()
