@@ -1,0 +1,10 @@
+## Load data and limit it to data from the dates 2007-02-01 and 2007-02-02.
+data_whole <-read.table("household_power_consumption.txt", header=TRUE, sep=";", na.strings = "?")
+data_200701 <-rbind(data_whole[data_whole$Date=="1/2/2007",],data_whole[data_whole$Date=="2/2/2007",])
+
+## Convert the Date and Time variables to Date/Time classes
+data_200701$Date <- as.Date(data_200701$Date,"%d/%m/%Y")
+data_200701<-cbind(data_200701, "DateTime" = as.POSIXct(paste(data_200701$Date, data_200701$Time)))
+
+## Plot 1
+hist(as.numeric(data_200701$Global_active_power), col="Red", main="Global Active Power", xlab="Global Active power (kilowatts)", ylab="Frequency")
