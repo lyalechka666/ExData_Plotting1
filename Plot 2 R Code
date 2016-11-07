@@ -9,3 +9,7 @@ data_200701<-cbind(data_200701, "DateTime" = as.POSIXct(paste(data_200701$Date, 
 
 ## Plot 2
 plot(data_200701$Global_active_power ~ data_200701$DateTime, type="l", xlab= "", ylab="Global Active power (kilowatts)")
+
+## Saving Output
+dev.copy(png,file="plot2.png",width=480, height=480)
+dev.off()
